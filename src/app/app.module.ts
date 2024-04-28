@@ -8,6 +8,8 @@ import { MainTemplateComponent } from './components/templates/main-template/main
 import { SidebarComponent } from './components/molecules/sidebar/sidebar.component';
 import { TechnologyComponent } from './components/pages/technology/technology.component';
 import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
+import { AvatarComponent } from './components/atoms/avatar/avatar.component';
+import { LogoComponent } from './components/atoms/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { LoginTemplateComponent } from './components/templates/login-template/lo
     SidebarComponent,
     //PAGES
     TechnologyComponent,
-    LoginTemplateComponent
+    LoginTemplateComponent,
+    AvatarComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

@@ -27,6 +27,7 @@ time, mark, audio, video {
 
 html, body, app-root{
 	height: 100%;
+	font-family: 'Poppins', sans-serif;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -52,3 +53,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+a {
+	color: inherit; 
+	text-decoration: none;
+  }

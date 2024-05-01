@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/molecules/navbar/navbar.component';
 import { MainTemplateComponent } from './components/templates/main-template/main-template.component';
 import { SidebarComponent } from './components/molecules/sidebar/sidebar.component';
-import { TechnologyComponent } from './components/pages/technology/technology.component';
 import { LoginTemplateComponent } from './components/templates/login-template/login-template.component';
 import { AvatarComponent } from './components/atoms/avatar/avatar.component';
 import { LogoComponent } from './components/atoms/logo/logo.component';
+import { LibraryComponent } from './components/pages/library/library.component';
+import { HomeComponent } from './components/pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import { LogoComponent } from './components/atoms/logo/logo.component';
     MainTemplateComponent,
     SidebarComponent,
     //PAGES
-    TechnologyComponent,
     LoginTemplateComponent,
     AvatarComponent,
-    LogoComponent
+    LogoComponent,
+    LibraryComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,9 @@ import { AvatarComponent } from './components/atoms/avatar/avatar.component';
 import { LogoComponent } from './components/atoms/logo/logo.component';
 import { LibraryComponent } from './components/pages/library/library.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { TechnologyComponent } from './components/organisms/technology/technology.component';
+import { CapabilityComponent } from './components/organisms/capability/capability.component';
+import { BootcampComponent } from './components/organisms/bootcamp/bootcamp.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +21,14 @@ import { HomeComponent } from './components/pages/home/home.component';
     NavbarComponent,
     MainTemplateComponent,
     SidebarComponent,
-    //PAGES
     LoginTemplateComponent,
     AvatarComponent,
     LogoComponent,
     LibraryComponent,
-    HomeComponent
+    HomeComponent,
+    TechnologyComponent,
+    CapabilityComponent,
+    BootcampComponent
   ],
   imports: [
     BrowserModule,

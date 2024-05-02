@@ -4,3 +4,8 @@ export interface ISidebarItem{
     iconUrl:string;
     route:string;
 }
+
+export interface ITabsItem{
+    name:string;
+    route:string;
+}

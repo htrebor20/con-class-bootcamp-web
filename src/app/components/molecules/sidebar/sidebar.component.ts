@@ -10,6 +10,7 @@ import { ISidebarItem } from '../../../../utils/interfaces/genericInterfaces';
 export class SidebarComponent implements OnInit {
 
   options: ISidebarItem[] = SIDEBAR_OPTIONS;
+  
   constructor() { }
 
   ngOnInit(): void {

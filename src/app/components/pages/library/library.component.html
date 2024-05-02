@@ -1,1 +1,9 @@
-<p>library works!</p>
+<ul class="tabs">
+    <li *ngFor="let option of options" [routerLinkActive]="['tabs__items--active']">
+        <a [routerLink]="[option.route]" class="tabs__items">
+          {{option.name}}
+        </a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>

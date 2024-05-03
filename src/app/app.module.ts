@@ -14,6 +14,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { TechnologyComponent } from './components/organisms/technology/technology.component';
 import { CapabilityComponent } from './components/organisms/capability/capability.component';
 import { BootcampComponent } from './components/organisms/bootcamp/bootcamp.component';
+import { ButtonComponent } from './components/atoms/button/button.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BootcampComponent } from './components/organisms/bootcamp/bootcamp.comp
     HomeComponent,
     TechnologyComponent,
     CapabilityComponent,
-    BootcampComponent
+    BootcampComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

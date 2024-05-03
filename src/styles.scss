@@ -28,6 +28,7 @@ time, mark, audio, video {
 html, body, app-root{
 	height: 100%;
 	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -40,6 +41,11 @@ body {
 }
 ol, ul {
 	list-style: none;
+}
+button {
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
 }
 blockquote, q {
 	quotes: none;

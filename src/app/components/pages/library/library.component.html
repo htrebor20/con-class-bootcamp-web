@@ -1,6 +1,6 @@
 <ul class="tabs">
-    <li *ngFor="let option of options" [routerLinkActive]="['tabs__items--active']">
-        <a [routerLink]="[option.route]" class="tabs__items">
+    <li *ngFor="let option of options">
+        <a [routerLink]="[option.route]" class="tabs__items" [routerLinkActive]="['tabs__items--active']">
           {{option.name}}
         </a>
     </li>

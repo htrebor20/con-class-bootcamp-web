@@ -15,6 +15,9 @@ import { TechnologyComponent } from './components/organisms/technology/technolog
 import { CapabilityComponent } from './components/organisms/capability/capability.component';
 import { BootcampComponent } from './components/organisms/bootcamp/bootcamp.component';
 import { ButtonComponent } from './components/atoms/button/button.component';
+import { ModalComponent } from './components/organisms/modal/modal.component';
+import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
+import { InputComponent } from './components/atoms/input/input.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { ButtonComponent } from './components/atoms/button/button.component';
     CapabilityComponent,
     BootcampComponent,
     ButtonComponent,
+    ModalComponent,
+    PageNotFoundComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,

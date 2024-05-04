@@ -1,8 +1,8 @@
 import { ISidebarItem, ITabsItem } from "../interfaces/genericInterfaces";
 
 export const SIDEBAR_OPTIONS: ISidebarItem[] = [
-    { id: 1, name: "Inicio", iconUrl: "assets/icons/home.svg", route: 'home' },
-    { id: 2, name: "Biblioteca", iconUrl: "assets/icons/library.svg", route: 'library' }
+    { name: "Inicio", iconUrl: "assets/icons/home.svg", route: 'home' },
+    { name: "Biblioteca", iconUrl: "assets/icons/library.svg", route: 'library' }
 ]
 
 export const TABS_OPTIONS: ITabsItem[] = [

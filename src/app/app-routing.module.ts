@@ -7,6 +7,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { TechnologyComponent } from './components/organisms/technology/technology.component';
 import { BootcampComponent } from './components/organisms/bootcamp/bootcamp.component';
 import { CapabilityComponent } from './components/organisms/capability/capability.component';
+import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,7 +28,7 @@ const routes: Routes = [
       }
     ]
   },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

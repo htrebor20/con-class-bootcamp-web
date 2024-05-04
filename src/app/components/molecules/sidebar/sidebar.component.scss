@@ -1,3 +1,5 @@
+@import "../../../../styles/variables";
+
 :host {
     display: flex;
     justify-content: center;
@@ -19,17 +21,18 @@
     height: 3rem;
     font-size: 21px;
     line-height: 25.2px;
-    color: #E7833D;
+    color: $color-primary;
     border-radius: 11px;
-}
 
-.list__items--active{
-    background-color: #E7833D66;
-    font-weight: 700;
-}
+    &--active{
+        background-color: #E7833D66;
+        font-weight: 700;
+    }
 
-.list__items:not(.list__items--active):hover {
-    background-color: rgba(231, 132, 61, 0.2);   
+    &:not(&--active):hover {
+        background-color: rgba(231, 132, 61, 0.2);   
+    }
+    
 }
 
 .items__img {

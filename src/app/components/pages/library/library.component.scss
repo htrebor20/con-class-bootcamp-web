@@ -1,3 +1,5 @@
+@import "../../../../styles/variables";
+
 :host {
     display: flex;
     flex-direction: column;
@@ -8,23 +10,23 @@
 
 .tabs {
     display: flex;
-    flex-direction:row;
-    color: #E7833D;
-}
+    flex-direction: row;
+    color: $color-primary;
 
-.tabs__items {
-    display: block;
-    padding: 8px 16px 18px 16px;
-    border-bottom: #E7833D 1px solid;
-    line-height: 19.2px;
-    transition: box-shadow 0.2s ease;
-}
-    
-.tabs__items:not(.tabs__items--active):hover {
-    box-shadow: inset 0 -10px 7px -8px #E7833DCC; 
-}
+    &__items {
+        display: block;
+        padding: 8px 16px 18px 16px;
+        border-bottom: $color-primary 1px solid;
+        line-height: 19.2px;
+        transition: box-shadow 0.2s ease;
 
-.tabs__items--active {
-    border-bottom: #E7833D 3px solid; 
-    box-shadow: inset 0 -10px 7px -8px #E7833DCC; 
+        &--active {
+            border-bottom: $color-primary 3px solid;
+            box-shadow: inset 0 -10px 7px -8px $color-primary;
+        }
+
+        &:not(&--active):hover {
+            box-shadow: inset 0 -10px 7px -8px $color-primary;
+        }
+    }
 }

@@ -1,17 +1,17 @@
-<div class="modal">
+<div class="modal" [ngClass]="{'modal--open': true }" >
     <div class="modal__content">
         <div class="title__container">
-            <p class="modal__message">Crear tecnología</p>
-            <img src="assets/icons/close.svg" alt="close" class="close">
+            <p class="modal__message">{{title}}</p>
+            <app-button-icon (click)="closeModal()" icon="assets/icons/close.svg"
+                class="close"></app-button-icon>
         </div>
+
         <div class="content__container">
-            <app-input label="Nombre" name="nombre" placeholder="Ingrese el nombre de la tecnología"
-                type="text"></app-input>
-            <app-input label="Descripción" name="descripcion" placeholder="Ingrese la descripción"
-                type="text"></app-input>
+            <ng-content></ng-content>
         </div>
+
         <div class="modal__button">
-            <app-button label="Crear"></app-button>
+            <app-button [label]="buttonTitle"></app-button>
         </div>
     </div>
 </div>

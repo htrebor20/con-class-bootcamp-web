@@ -6,6 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./technology.component.scss']
 })
 export class TechnologyComponent implements OnInit {
+  modalIsOpen: boolean = false;
+
+
+  openModal() {
+    this.modalIsOpen = true;
+  }
+
+  closeModal() {
+    this.modalIsOpen = false;
+  }
 
   constructor() { }
 

@@ -18,6 +18,8 @@ import { ButtonComponent } from './components/atoms/button/button.component';
 import { ModalComponent } from './components/organisms/modal/modal.component';
 import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 import { InputComponent } from './components/atoms/input/input.component';
+import { ButtonIconComponent } from './components/atoms/button-icon/button-icon.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,13 @@ import { InputComponent } from './components/atoms/input/input.component';
     ModalComponent,
     PageNotFoundComponent,
     InputComponent,
+    ButtonIconComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

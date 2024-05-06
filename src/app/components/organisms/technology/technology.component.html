@@ -1,5 +1,12 @@
-<p class="content__message" >Crea una tecnología</p>
+<p class="content__message">Crea una tecnología</p>
 <div class="content__button">
-    <app-button  icon="assets\icons\plus.svg" label="Crear"></app-button>
+    <app-button icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
 </div>
-<app-modal></app-modal>
+
+<app-modal *ngIf="modalIsOpen" title="Crear tecnología" buttonTitle="Crear" (close)="closeModal()">
+    <form class="modal__content">
+        <app-input label="Nombre" name="nombre" placeholder="Ingrese el nombre de la tecnología"
+            type="text"></app-input>
+        <app-input label="Descripción" name="descripcion" placeholder="Ingrese la descripción" type="text"></app-input>
+    </form>
+</app-modal>

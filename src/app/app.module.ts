@@ -20,6 +20,7 @@ import { PageNotFoundComponent } from './components/pages/page-not-found/page-no
 import { InputComponent } from './components/atoms/input/input.component';
 import { ButtonIconComponent } from './components/atoms/button-icon/button-icon.component';
 import { FormsModule } from '@angular/forms';
+import { ListItemsComponent } from './components/molecules/list-items/list-items.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FormsModule } from '@angular/forms';
     PageNotFoundComponent,
     InputComponent,
     ButtonIconComponent,
+    ListItemsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+@import "../../../../styles/variables";
+
+:host {
+    display: flex;
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border-bottom: $color-primary 1px solid;
+    width: 100%;
+    padding: 1rem;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.3rem;
+    }
+
+    &__title {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 31.2px;
+    }
+
+    &__subtitle {
+        line-height: 19.2px;
+    }
+}

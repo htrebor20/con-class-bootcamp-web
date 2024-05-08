@@ -3,10 +3,13 @@
     <app-button icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
 </div>
 
-<app-modal *ngIf="modalIsOpen" title="Crear tecnología" buttonTitle="Crear" (close)="closeModal()">
-    <form class="modal__content">
-        <app-input label="Nombre" name="nombre" placeholder="Ingrese el nombre de la tecnología"
-            type="text"></app-input>
-        <app-input label="Descripción" name="descripcion" placeholder="Ingrese la descripción" type="text"></app-input>
-    </form>
+<app-modal *ngIf="modalIsOpen" title="Crear tecnología" (close)="closeModal()">
+    <app-form-technology (responseStatus)="handleResponse($event)"></app-form-technology>
+</app-modal>
+
+<app-modal *ngIf="response" buttonTitle="Aceptar" (close)="closeResponseModal()" (accept)="closeResponseModal()">
+    <div>
+        <app-response-message [status]="response.status" [message]="response.message">
+        </app-response-message>
+    </div>
 </app-modal>

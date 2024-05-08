@@ -9,7 +9,8 @@ export class ButtonComponent implements OnInit {
 
   @Input() icon: string = "";
   @Input() label: string = "";
-
+  @Input() type: string = "button";
+  
   constructor() { }
 
   ngOnInit(): void {

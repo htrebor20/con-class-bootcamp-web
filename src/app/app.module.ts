@@ -17,9 +17,10 @@ import { BootcampComponent } from './components/organisms/bootcamp/bootcamp.comp
 import { ButtonComponent } from './components/atoms/button/button.component';
 import { ModalComponent } from './components/organisms/modal/modal.component';
 import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
-import { InputComponent } from './components/atoms/input/input.component';
 import { ButtonIconComponent } from './components/atoms/button-icon/button-icon.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormTechnologyComponent } from './components/molecules/form-technology/form-technology.component';
+import { ResponseMessageComponent } from './components/atom/response-message/response-message.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +39,15 @@ import { FormsModule } from '@angular/forms';
     ButtonComponent,
     ModalComponent,
     PageNotFoundComponent,
-    InputComponent,
     ButtonIconComponent,
+    FormTechnologyComponent,
+    ResponseMessageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

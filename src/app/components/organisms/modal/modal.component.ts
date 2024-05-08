@@ -10,9 +10,14 @@ export class ModalComponent implements OnInit {
   @Input() buttonTitle: string= ""; 
   
   @Output() close = new EventEmitter<void>();
+  @Output() accept = new EventEmitter<void>();
 
   closeModal() {
     this.close.emit();
+  }
+
+  onAccept() {
+    this.accept.emit();
   }
   
   constructor() { }

@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { IGenericResponse } from '../../../../utils/interfaces/http/httpInterfaces';
 
 @Component({
   selector: 'app-technology',
   templateUrl: './technology.component.html',
   styleUrls: ['./technology.component.scss']
 })
+
 export class TechnologyComponent implements OnInit {
   modalIsOpen: boolean = false;
+  response: IGenericResponse | null = null;
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   openModal() {
     this.modalIsOpen = true;
@@ -17,9 +24,13 @@ export class TechnologyComponent implements OnInit {
     this.modalIsOpen = false;
   }
 
-  constructor() { }
+  closeResponseModal() {
+    this.response = null;
+  }
 
-  ngOnInit(): void {
+  handleResponse(responseData: IGenericResponse) {
+    this.closeModal();
+    this.response = responseData;
   }
 
 }

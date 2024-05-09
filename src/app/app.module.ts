@@ -20,7 +20,7 @@ import { PageNotFoundComponent } from './components/pages/page-not-found/page-no
 import { ButtonIconComponent } from './components/atoms/button-icon/button-icon.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormTechnologyComponent } from './components/molecules/form-technology/form-technology.component';
-import { ResponseMessageComponent } from './components/atom/response-message/response-message.component';
+import { ResponseMessageComponent } from './components/atoms/response-message/response-message.component';
 
 @NgModule({
   declarations: [

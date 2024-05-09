@@ -1,13 +1,11 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form" class="modal__content">
     <div class="custom__imput">
         <label class ="label" for="name">Nombre</label>
-        <input class = "input" id="name" name="name" placeholder="Ingrese el nombre de la tecnología" type="text"
-            formControlName="name">
+        <input class = "input" id="name" name="name" placeholder="Ingrese el nombre de la tecnología" type="text" formControlName="name">
     </div>
     <div class="custom__imput">
         <label class ="label" for="description">Descripción</label>
-        <input class = "input" id="description" name="description" placeholder="Ingrese la descripción" type="text"
-            formControlName="description">
+        <input class = "input" id="description" name="description" placeholder="Ingrese la descripción" type="text" formControlName="description">
     </div>
     <app-button type="submit" label="Crear"></app-button>
 </form>

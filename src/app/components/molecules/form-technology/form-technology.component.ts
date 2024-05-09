@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IGenericResponse } from '../../../../utils/interfaces/http/httpInterfaces';
+import { TechnoloyService } from '../../../services/technology/technoloy.service';
 
 @Component({
   selector: 'app-form-technology',
@@ -14,23 +14,17 @@ export class FormTechnologyComponent implements OnInit {
 
   @Output() responseStatus: EventEmitter<IGenericResponse> = new EventEmitter<IGenericResponse>();
 
-  constructor(private readonly fb: FormBuilder, private http: HttpClient) { }
-
+  constructor(private readonly fb: FormBuilder, private technologyService: TechnoloyService) { }
+  response!: IGenericResponse;
   ngOnInit(): void { }
 
-  onSubmit(): void {
+  async onSubmit() {
     const formData = this.form.value;
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJzdWIiOiJyb2JlcnRAZXhhbXBsZS5jb20iLCJpYXQiOjE3MTUxMjcwMjUsImV4cCI6MTcxNTczMTgyNX0.Vy-YzUA03NfwKzypVonyRc_HYxKCxOX4DwmxpvLt8a2Q3JUaI84SYj7yV2OGsRiUJvzcYsr6mUPk3ufZS2kPCw'
-    });
-
-    this.http.post<IGenericResponse>('http://localhost:8090/technology', formData, { headers, observe: 'response' }).subscribe({
-      next: (response: HttpResponse<IGenericResponse>) => {
+    this.technologyService.createTechnology(formData).subscribe({
+      next: (response: IGenericResponse) => {
         this.responseStatus.emit({ status: response.status, message: "¡Tecnología creada!" });
       },
-      error: (error) => {
+      error: (error: any) => {
         this.responseStatus.emit({ status: error.status, message: error.error?.message });
       }
     })

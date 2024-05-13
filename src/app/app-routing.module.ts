@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './components/pages/page-not-found/page-no
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'library', redirectTo: 'library/technology', pathMatch: 'full' },
   { path: 'login', component: LoginTemplateComponent },
   {
     path: '',

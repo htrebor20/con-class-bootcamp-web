@@ -1,12 +1,14 @@
-<!-- 
-<app-list-items title="Angular" subtitle="Texto descriptivo">
- 
-</app-list-items> -->
+<app-loader class="loader"></app-loader>
 
+<h2 *ngIf="requestError" class="content__message">Hubo un error. Inténtalo más tarde.</h2>
 
-<h2 class="content__message">Crea una tecnología</h2>
-<div class="content__button">
-    <app-button icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
+<div *ngIf="!requestError && !isLoading" class="content">
+    <app-list-items *ngFor="let technology of technologiesList" [title]="technology.name"
+        [subtitle]="technology.description"></app-list-items>
+    <h2 *ngIf="!technologiesList.length" class="content__message">Crea una tecnología</h2>
+    <div class="content__button">
+        <app-button icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
+    </div>
 </div>
 
 <app-modal *ngIf="modalIsOpen" title="Crear tecnología" (close)="closeModal()">

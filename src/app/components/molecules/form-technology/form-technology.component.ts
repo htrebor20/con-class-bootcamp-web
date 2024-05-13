@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IGenericResponse } from '../../../../utils/interfaces/http/httpInterfaces';
 import { TechnoloyService } from '../../../services/technology/technoloy.service';
 
@@ -19,22 +19,46 @@ export class FormTechnologyComponent implements OnInit {
   ngOnInit(): void { }
 
   async onSubmit() {
-    const formData = this.form.value;
-    this.technologyService.createTechnology(formData).subscribe({
-      next: (response: IGenericResponse) => {
-        this.responseStatus.emit({ status: response.status, message: "¡Tecnología creada!" });
-      },
-      error: (error: any) => {
-        this.responseStatus.emit({ status: error.status, message: error.error?.message });
+
+    this.form.markAllAsTouched();
+
+    if (this.form.valid) {
+      const formData = this.form.value;
+      this.technologyService.createTechnology(formData).subscribe({
+        next: (response: IGenericResponse) => {
+          this.responseStatus.emit({ status: response.status, message: "¡Tecnología creada!" });
+        },
+        error: (error: any) => {
+          this.responseStatus.emit({ status: error.status, message: error.error?.message });
+        }
+      })
+    }
+  }
+
+  getError(field: string): string {
+    const errors = this.form.get(field)?.errors
+
+    console.log("errores => ", errors)
+
+    if (errors) {
+      if (errors['required']) {
+        return "El campo es requerido"
       }
-    })
+      if (errors['maxlength']) {
+        return "Longitud maxima es " + errors['maxlength'].requiredLength
+      }
+    }
+    return ''
   }
 
   initForm(): FormGroup {
+    const nameControl = this.fb.control('', [Validators.required, Validators.maxLength(50)]);
+    const descControl = this.fb.control('', [Validators.required, Validators.maxLength(90)]);
+
     return this.fb.group({
-      name: [''],
-      description: [''],
+      name: nameControl,
+      description: descControl,
     })
   }
-
 }
+

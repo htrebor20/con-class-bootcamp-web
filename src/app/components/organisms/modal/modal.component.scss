@@ -23,8 +23,10 @@
     background-color: white;
 }
 
-.title__container {
+.modal__title {
     display: flex;
+    justify-content: end;
+    align-items: center;
 }
 
 .modal__message {
@@ -34,6 +36,10 @@
     font-size: 26px;
     font-weight: 700;
     color: $color-primary;
+}
+
+.modal__close{
+    display: flex;
 }
 
 .content__container{

@@ -1,9 +1,11 @@
 :host {
+    display: flex;
     width: 100%;
-    display: grid;
-    grid-template-areas: 
-    "sidebar navbar"
-    "sidebar content";
-    
-    grid-template-columns: 393px 1fr;
+    height: 100%;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }

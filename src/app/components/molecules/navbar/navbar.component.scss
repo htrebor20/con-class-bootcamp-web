@@ -1,13 +1,20 @@
+@import "../../../../styles/variables";
+
 :host {
-    display: block;
-    background-color: aqua;
-    grid-area: navbar;
+    width: 100%;
 }
 
-div { 
-    background-color: green;
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: end;    
+    height: 70px;   
+    padding-right: 8%;
+    border-radius: 0px 0px 24px 0px;
+    background-color: #E7833DB2;    
 }
 
-.divColorVerde {
-    background-color: green;
+.navbar--light{
+    background-color: #FDF1E9;
+    border-radius: 0px 0px 24px 24px;
 }

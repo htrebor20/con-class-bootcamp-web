@@ -1,6 +1,41 @@
+@import "../../../../styles/variables";
+
 :host {
-    display: block;
-    background-color: blanchedalmond;
-    grid-area: sidebar;
+    display: flex;
+    justify-content: center;
+    background-color: #FDF1E9;
+    width: 393px;
     height: 100%;
+}
+
+.sidebar__list {
+    margin-top: 13rem;
+    width: 100%;
+}
+
+.list__items {
+    display: flex;
+    gap: 1rem;
+    padding: 0 20%;
+    align-items: center;
+    height: 3rem;
+    font-size: 21px;
+    line-height: 25.2px;
+    color: $color-primary;
+    border-radius: 11px;
+
+    &--active{
+        background-color: #E7833D66;
+        font-weight: 700;
+    }
+
+    &:not(&--active):hover {
+        background-color: rgba(231, 132, 61, 0.2);   
+    }
+    
+}
+
+.items__img {
+    height: 16px;
+    width: 16px;
 }

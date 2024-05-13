@@ -1,0 +1,16 @@
+@import "../../../../styles/variables";
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 28px;
+    border-radius:25px;
+    background: $color-primary;
+    color: white;
+
+    &:active {
+        background-color: #FDF1E9;
+    }
+}

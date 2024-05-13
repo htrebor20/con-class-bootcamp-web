@@ -1,1 +1,8 @@
-<p>sidebar works!</p>
+<ul class="sidebar__list">
+    <li *ngFor="let option of options" >
+        <a [routerLink]="[option.route]" class="list__items" [routerLinkActive]="['list__items--active']">
+            <img [src]="option.iconUrl" alt="sidebar item icon" class="items__img">
+            <span>{{option.name}}</span>
+        </a>
+    </li>
+</ul>

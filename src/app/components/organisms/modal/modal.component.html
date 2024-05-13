@@ -1,0 +1,18 @@
+<div class="modal" [ngClass]="{'modal--open': true }">
+    <div class="modal__content">
+        <div class="modal__title">
+            <span *ngIf="title" class="modal__message">{{title}}</span>
+            <div class="modal__close">
+                <app-button-icon (click)="closeModal()" icon="assets/icons/close.svg"></app-button-icon>
+            </div>
+        </div>
+
+        <div class="content__container">
+            <ng-content></ng-content>
+        </div>
+
+        <div *ngIf="buttonTitle" class="modal__button">
+            <app-button (click)="onAccept()" [label]="buttonTitle"></app-button>
+        </div>
+    </div>
+</div>

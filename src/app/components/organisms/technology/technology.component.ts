@@ -9,7 +9,7 @@ import { IGenericResponse } from '../../../../utils/interfaces/http/httpInterfac
 
 export class TechnologyComponent implements OnInit {
   modalIsOpen: boolean = false;
-  response: IGenericResponse | null = null;
+  response?: IGenericResponse ;
 
   constructor() { }
 
@@ -25,7 +25,7 @@ export class TechnologyComponent implements OnInit {
   }
 
   closeResponseModal() {
-    this.response = null;
+    this.response = undefined;
   }
 
   handleResponse(responseData: IGenericResponse) {

@@ -1,0 +1,28 @@
+<div class="pagination">
+  <app-button-icon icon="assets\icons\leftArrow.svg" class="pagination__btn" (click)="goBack()"
+    [ngClass]="{'pagination__btn--hide': currentPage === 1}"></app-button-icon>
+  <ng-container *ngIf="totalPages <= 5; else moreThanFivePages">
+    <ng-container *ngFor="let pageNum of pages">
+      <button class="pagination__btn" [ngClass]="{'pagination__btn--active': currentPage === pageNum}"
+        (click)="changePage(pageNum)">{{ pageNum }}</button>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #moreThanFivePages>
+    <button class="pagination__btn" (click)="changePage(1)"
+      [ngClass]="{'pagination__btn--active': currentPage === 1}">1</button>
+    <span class="pagination__btn" *ngIf="currentPage > 3">...</span>
+    <ng-container *ngFor="let pageNum of pages">
+      <button
+        *ngIf="pageNum !== 1 && pageNum !== totalPages && (currentPage - 1 <= pageNum && pageNum <= currentPage + 1)"
+        class="pagination__btn" [ngClass]="{'pagination__btn--active': currentPage === pageNum}"
+        (click)="changePage(pageNum)">{{ pageNum }}</button>
+    </ng-container>
+    <span class="pagination__btn" *ngIf="totalPages - currentPage > 2">...</span>
+    <button class="pagination__btn" (click)="changePage(totalPages)"
+      [ngClass]="{'pagination__btn--active': currentPage === totalPages}">{{ totalPages }}</button>
+  </ng-template>
+
+  <app-button-icon icon="assets\icons\rightArrow.svg" class="pagination__btn" (click)="goNext()"
+    [ngClass]="{'pagination__btn--hide': currentPage === totalPages}"></app-button-icon>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IGenericResponse } from '../../../../utils/interfaces/http/httpInterfaces';
+import { IGenericResponse, IPage } from '../../../../utils/interfaces/http/httpInterfaces';
 import { TechnologyService } from '../../../services/technology/technology.service'
 import { ITechnology } from '../../../../utils/interfaces/technology/interfaces';
 import { LoaderService } from '../../../services/loader/loader.service';
@@ -11,27 +11,39 @@ import { LoaderService } from '../../../services/loader/loader.service';
 })
 
 export class TechnologyComponent implements OnInit {
-  technologiesList: ITechnology[] = []
+  technologiesList: ITechnology[] = [];
+  totalPages: number = NaN;
+  isLoading: boolean = false;
+  pageNumber: number = 1;
+  pageSize: number = 10;
+  order: string = "";
   requestError: boolean = false
   modalIsOpen: boolean = false;
-  response?: IGenericResponse ;
-  isLoading: boolean = false;
-
-  constructor(private technologyService: TechnologyService, private readonly serviceLoader: LoaderService) {
+  firstLoad: boolean = true;
+  response?: IGenericResponse;
+ 
+  constructor(private technologyService: TechnologyService, private serviceLoader: LoaderService) {
     this.serviceLoader.isLoading$.subscribe(isLoading => {
       this.isLoading = isLoading;
     });
   }
 
   ngOnInit(): void {
-    this.technologyService.getTechnologies().subscribe({
-      next: (response: ITechnology[]) => {
-        this.technologiesList = response
+    this.loadTechnologies()
+  }
+
+  loadTechnologies(): void {
+    this.technologyService.getTechnologies(this.pageNumber - 1, this.pageSize, this.order).subscribe({
+      next: (response: IPage<ITechnology>) => {
+        this.technologiesList = response.content;
+        this.totalPages = response.totalPages;
+        this.firstLoad = false;
       },
       error: (error: any) => {
         this.requestError = true
+        this.firstLoad = false;
       }
-    })
+    });
   }
 
   openModal() {
@@ -47,8 +59,25 @@ export class TechnologyComponent implements OnInit {
   }
 
   handleResponse(responseData: IGenericResponse) {
+    this.loadTechnologies()
     this.closeModal();
     this.response = responseData;
+  }
+
+  orderChanged(order: string): void {
+    this.order = order;
+    this.loadTechnologies()
+  }
+
+  sizeChanged(size: number): void {
+    this.pageSize = size;
+    this.pageNumber = 1;
+    this.loadTechnologies()
+  }
+
+  pageChanged(page: number) {
+    this.pageNumber = page;
+    this.loadTechnologies()
   }
 
 }

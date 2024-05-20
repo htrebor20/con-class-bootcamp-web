@@ -1,15 +1,30 @@
-<app-loader class="loader"></app-loader>
-
 <h2 *ngIf="requestError" class="content__message">Hubo un error. Inténtalo más tarde.</h2>
 
-<div *ngIf="!requestError && !isLoading" class="content">
-    <app-list-items *ngFor="let technology of technologiesList" [title]="technology.name"
-        [subtitle]="technology.description"></app-list-items>
-    <h2 *ngIf="!technologiesList.length" class="content__message">Crea una tecnología</h2>
-    <div class="content__button">
-        <app-button icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
-    </div>
+<div *ngIf="firstLoad; else contentBlock">
+    <app-loader></app-loader>
 </div>
+
+<ng-template #contentBlock>
+    <app-table *ngIf="technologiesList; else noDataBlock" 
+        [technologiesList]="technologiesList"
+        [totalPages]="totalPages"
+        [pageNumber]="pageNumber"
+        [isLoading]="isLoading"
+        (changedPage)="pageChanged($event)"
+        (changedOrder)="orderChanged($event)"
+        (changedSize)="sizeChanged($event)"
+        >
+        <app-button icon="assets/icons/plus.svg" label="Crear" (click)="openModal()">
+        </app-button>
+    </app-table>
+
+    <ng-template #noDataBlock>
+        <div class=content>
+            <h2 class="content__message">Crea una tecnología</h2>
+            <app-button class="btn-create" icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
+        </div>
+    </ng-template>
+</ng-template>
 
 <app-modal *ngIf="modalIsOpen" title="Crear tecnología" (close)="closeModal()">
     <app-form-technology (responseStatus)="handleResponse($event)"></app-form-technology>

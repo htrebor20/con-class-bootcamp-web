@@ -1,0 +1,81 @@
+@import "../../../../styles/variables";
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    flex: 1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.content_data {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    max-height: 55vh;
+    overflow-y: auto;
+    padding: 0 1rem;
+
+    &::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: none;
+        border-radius: 10px;
+        background-color: #e5e0e0;
+    }
+
+    &::-webkit-scrollbar
+    {
+        width: 0.5rem;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: none;
+        background-color: $color-primary;
+    }
+}
+
+.content__footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: end;
+    gap: 2rem
+}
+
+.content__header {
+    display: flex;
+    position: relative;
+    justify-content: end;
+    align-items: center;
+    gap:1rem
+}
+
+.select {
+    background-color: transparent;
+    border: none;
+    color: $color-primary;
+    font-size: 14px;
+    line-height: 19.6px;
+    padding: 0 0.2rem;   
+    outline: none;
+    cursor: pointer;
+
+    & option {
+        background-color: #e7843d1f;
+    }
+}
+
+.content__pagination{
+    height: 16px;
+}

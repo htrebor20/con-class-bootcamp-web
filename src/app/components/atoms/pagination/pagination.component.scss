@@ -1,0 +1,28 @@
+@import "../../../../styles/variables";
+
+.pagination {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.pagination__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: #969698;
+    font-weight: 600;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+}
+
+.pagination__btn--active {
+    background-color: $color-primary;
+    color: #fff;
+    box-shadow: -1px 6px 16px 3px rgba(231, 132, 61, 0.728);
+}
+
+.pagination__btn--hide{
+    display: none;
+}

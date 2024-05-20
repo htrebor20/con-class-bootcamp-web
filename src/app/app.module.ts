@@ -24,6 +24,8 @@ import { FormTechnologyComponent } from './components/molecules/form-technology/
 import { ResponseMessageComponent } from './components/atoms/response-message/response-message.component';
 import { CustomInterceptor } from './services/interceptor/custom.interceptor';
 import { LoaderComponent } from './components/atoms/loader/loader.component';
+import { PaginationComponent } from './components/atoms/pagination/pagination.component';
+import { TableComponent } from './components/molecules/table/table.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { LoaderComponent } from './components/atoms/loader/loader.component';
     FormTechnologyComponent,
     ResponseMessageComponent,
     LoaderComponent,
+    PaginationComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,

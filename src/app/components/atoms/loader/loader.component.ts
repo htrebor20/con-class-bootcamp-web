@@ -7,11 +7,6 @@ import { LoaderService } from '../../../services/loader/loader.service';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-  isLoading: boolean = false;
-
-  constructor(private readonly serviceLoader: LoaderService) {
-    this.serviceLoader.isLoading$.subscribe(isLoading => {
-      this.isLoading = isLoading;
-    });
-  }
+  
+  constructor() {}
 }

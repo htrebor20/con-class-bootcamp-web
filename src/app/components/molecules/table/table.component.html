@@ -1,0 +1,30 @@
+<div *ngIf="technologiesList" class="content">
+    <div class="content__header">
+        <select class="select" (change)="changeOrder($event)">
+            <option *ngFor="let option of selectOrder" [value]="option.value">{{option.label}}</option>
+        </select>
+
+        <select class="select" (change)="changeSize($event)">
+            <option *ngFor="let option of selectSize" [value]="option.value"> {{option.label}} </option>
+        </select>
+    </div>
+
+    <div *ngIf="!isLoading; else elseBlock" class="content_data">
+        <app-list-items *ngFor="let technology of technologiesList" [title]="technology.name"
+            [subtitle]="technology.description">
+        </app-list-items>
+    </div>
+
+    <ng-template #elseBlock>
+        <app-loader></app-loader>
+    </ng-template>
+    
+    <div class="content__footer">
+        <ng-content></ng-content>
+        <div class="content__pagination">
+            <app-pagination *ngIf="totalPages" [currentPage]="pageNumber" [totalPages]="totalPages"
+                (pageChanged)="changePage($event)">
+            </app-pagination>
+        </div>
+    </div>
+</div>

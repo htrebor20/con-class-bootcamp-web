@@ -2,8 +2,12 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { Token } from "@angular/compiler";
+
 export const environment = {
-  production: false
+  production: false,
+  apiUrlBase: "http://localhost:8090",
+  token: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJzdWIiOiJyb2JlcnRAZXhhbXBsZS5jb20iLCJpYXQiOjE3MTYxMzU5NzMsImV4cCI6MTcxNjc0MDc3M30.ZdVvptCGO2eWCRdMQa45x7G99rCzkqdfSe4cgEZP7GduE9gX6JsuxFxqIH8fsTtjt2HfA2v49EclnsLwgTQEvw'
 };
 
 /*

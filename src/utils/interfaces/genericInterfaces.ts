@@ -8,3 +8,8 @@ export interface ITabsItem{
     name:string;
     route:string;
 }
+
+export interface ISelectItem{
+    label:string;
+    value:number | string;
+}

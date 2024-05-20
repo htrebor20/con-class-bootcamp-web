@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/molecules/navbar/navbar.component';
@@ -18,9 +18,14 @@ import { ButtonComponent } from './components/atoms/button/button.component';
 import { ModalComponent } from './components/organisms/modal/modal.component';
 import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 import { ButtonIconComponent } from './components/atoms/button-icon/button-icon.component';
+import { ListItemsComponent } from './components/molecules/list-items/list-items.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormTechnologyComponent } from './components/molecules/form-technology/form-technology.component';
 import { ResponseMessageComponent } from './components/atoms/response-message/response-message.component';
+import { CustomInterceptor } from './services/interceptor/custom.interceptor';
+import { LoaderComponent } from './components/atoms/loader/loader.component';
+import { PaginationComponent } from './components/atoms/pagination/pagination.component';
+import { TableComponent } from './components/molecules/table/table.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +45,12 @@ import { ResponseMessageComponent } from './components/atoms/response-message/re
     ModalComponent,
     PageNotFoundComponent,
     ButtonIconComponent,
+    ListItemsComponent,
     FormTechnologyComponent,
     ResponseMessageComponent,
+    LoaderComponent,
+    PaginationComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,9 @@ import { ResponseMessageComponent } from './components/atoms/response-message/re
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

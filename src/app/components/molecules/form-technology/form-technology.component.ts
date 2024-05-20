@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IGenericResponse } from '../../../../utils/interfaces/http/httpInterfaces';
-import { TechnoloyService } from '../../../services/technology/technoloy.service';
+import { TechnologyService } from '../../../services/technology/technology.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-form-technology',
@@ -14,7 +15,7 @@ export class FormTechnologyComponent implements OnInit {
 
   @Output() responseStatus: EventEmitter<IGenericResponse> = new EventEmitter<IGenericResponse>();
 
-  constructor(private readonly fb: FormBuilder, private technologyService: TechnoloyService) { }
+  constructor(private readonly fb: FormBuilder, private technologyService: TechnologyService) { }
   response!: IGenericResponse;
   ngOnInit(): void { }
 
@@ -25,7 +26,7 @@ export class FormTechnologyComponent implements OnInit {
     if (this.form.valid) {
       const formData = this.form.value;
       this.technologyService.createTechnology(formData).subscribe({
-        next: (response: IGenericResponse) => {
+        next: (response: HttpResponse<IGenericResponse>) => {
           this.responseStatus.emit({ status: response.status, message: "¡Tecnología creada!" });
         },
         error: (error: any) => {
@@ -37,9 +38,6 @@ export class FormTechnologyComponent implements OnInit {
 
   getError(field: string): string {
     const errors = this.form.get(field)?.errors
-
-    console.log("errores => ", errors)
-
     if (errors) {
       if (errors['required']) {
         return "El campo es requerido"

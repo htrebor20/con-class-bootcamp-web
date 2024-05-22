@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="modal__content">
+    <div class="custom__imput">
+        <label class="label" for="name">Nombre</label>
+        <input class="input" id="name" name="name" placeholder="Ingrese el nombre de la capacidad" type="text"
+            formControlName="name">
+        <span *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)"
+            class="input__error"> {{
+            getError('name') }} </span>
+    </div>
+    <div class="custom__imput">
+        <label class="label" for="description">Descripción</label>
+        <input class="input" id="description" name="description" placeholder="Ingrese la descripción" type="text"
+            formControlName="description">
+        <span
+            *ngIf=" form.get('description')?.invalid && form.get('description')?.dirty || form.get('description')?.touched"
+            class="input__error">{{
+            getError('description') }}</span>
+    </div>
+    <app-button type="submit" label="Crear"></app-button>
+</form>

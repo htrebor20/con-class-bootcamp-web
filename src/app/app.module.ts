@@ -26,6 +26,7 @@ import { CustomInterceptor } from './services/interceptor/custom.interceptor';
 import { LoaderComponent } from './components/atoms/loader/loader.component';
 import { PaginationComponent } from './components/atoms/pagination/pagination.component';
 import { TableComponent } from './components/molecules/table/table.component';
+import { FormCapabilityComponent } from './components/molecules/form-capability/form-capability.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { TableComponent } from './components/molecules/table/table.component';
     LoaderComponent,
     PaginationComponent,
     TableComponent,
+    FormCapabilityComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,6 +27,7 @@ import { LoaderComponent } from './components/atoms/loader/loader.component';
 import { PaginationComponent } from './components/atoms/pagination/pagination.component';
 import { TableComponent } from './components/molecules/table/table.component';
 import { FormCapabilityComponent } from './components/molecules/form-capability/form-capability.component';
+import { FormBootcampComponent } from './components/molecules/form-bootcamp/form-bootcamp.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { FormCapabilityComponent } from './components/molecules/form-capability/
     PaginationComponent,
     TableComponent,
     FormCapabilityComponent,
+    FormBootcampComponent,
   ],
   imports: [
     BrowserModule,

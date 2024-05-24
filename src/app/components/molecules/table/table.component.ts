@@ -13,7 +13,7 @@ export class TableComponent {
   selectSize: ISelectItem[] = LIST_SIZE;
   selectOrder: ISelectItem[] = ORDER
 
-  @Input() technologiesList: ITechnology[] = []
+  @Input() listItems: any[] = []
   @Input() totalPages: number = NaN
   @Input() pageNumber: number = NaN
   @Input() isLoading: boolean = true

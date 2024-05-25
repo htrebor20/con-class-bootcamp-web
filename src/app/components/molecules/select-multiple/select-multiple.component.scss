@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.selected__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap:0.5rem
+}

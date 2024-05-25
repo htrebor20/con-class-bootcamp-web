@@ -1,5 +1,9 @@
 <div *ngIf="listItems" class="content">
     <div class="content__header">
+        <select class="select" (change)="changeOrderBy($event)">
+            <option *ngFor="let option of orderBy" [value]="option.value">{{option.label}}</option>
+        </select>
+
         <select class="select" (change)="changeOrder($event)">
             <option *ngFor="let option of selectOrder" [value]="option.value">{{option.label}}</option>
         </select>
@@ -9,8 +13,10 @@
         </select>
     </div>
 
+    <!-- [title]="item.name + ' ' + item.technologies.length" -->
     <div *ngIf="!isLoading; else elseBlock" class="content_data">
-        <app-list-items *ngFor="let item of listItems" [title]="item.name"
+        <app-list-items *ngFor="let item of listItems" 
+            [title]="item.name"
             [subtitle]="item.description">
         </app-list-items>
     </div>

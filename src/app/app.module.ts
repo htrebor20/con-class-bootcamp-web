@@ -28,6 +28,8 @@ import { PaginationComponent } from './components/atoms/pagination/pagination.co
 import { TableComponent } from './components/molecules/table/table.component';
 import { FormCapabilityComponent } from './components/molecules/form-capability/form-capability.component';
 import { FormBootcampComponent } from './components/molecules/form-bootcamp/form-bootcamp.component';
+import { SelectMultipleComponent } from './components/molecules/select-multiple/select-multiple.component';
+import { ChipsComponent } from './components/atoms/chips/chips.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { FormBootcampComponent } from './components/molecules/form-bootcamp/form
     TableComponent,
     FormCapabilityComponent,
     FormBootcampComponent,
+    SelectMultipleComponent,
+    ChipsComponent,
   ],
   imports: [
     BrowserModule,

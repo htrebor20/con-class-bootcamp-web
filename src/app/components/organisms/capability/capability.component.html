@@ -27,7 +27,7 @@
 </ng-template>
 
 <app-modal *ngIf="modalIsOpen" title="Crear capacidad" (close)="closeModal()">
-    <app-form-capability (responseStatus)="handleResponse($event)"></app-form-capability>
+    <app-form-capability (responseStatus)="handleResponse($event)" [technologyList] = technologiesList></app-form-capability>
 </app-modal>
 
 <app-modal *ngIf="response" buttonTitle="Aceptar" (close)="closeResponseModal()" (accept)="closeResponseModal()">

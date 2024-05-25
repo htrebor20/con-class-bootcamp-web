@@ -1,0 +1,12 @@
+@import "../../../../styles/variables";
+
+:host{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid $color-primary;;
+    padding-left: 0.5rem;
+    border-radius: 25px;
+    color: #7f7f7f;;
+}

@@ -27,6 +27,8 @@ import { LoaderComponent } from './components/atoms/loader/loader.component';
 import { PaginationComponent } from './components/atoms/pagination/pagination.component';
 import { TableComponent } from './components/molecules/table/table.component';
 import { FormCapabilityComponent } from './components/molecules/form-capability/form-capability.component';
+import { SelectMultipleComponent } from './components/molecules/select-multiple/select-multiple.component';
+import { ChipsComponent } from './components/atoms/chips/chips.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { FormCapabilityComponent } from './components/molecules/form-capability/
     PaginationComponent,
     TableComponent,
     FormCapabilityComponent,
+    SelectMultipleComponent,
+    ChipsComponent,
   ],
   imports: [
     BrowserModule,

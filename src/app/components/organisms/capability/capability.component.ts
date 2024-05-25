@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CapabilityService } from 'src/app/services/capability/capability.service';
 import { LoaderService } from 'src/app/services/loader/loader.service';
+import { TechnologyService } from 'src/app/services/technology/technology.service';
 import { ICapability } from 'src/utils/interfaces/capability/icapability';
+import { ISelectItem } from 'src/utils/interfaces/genericInterfaces';
 import { IGenericResponse, IPage } from 'src/utils/interfaces/http/httpInterfaces';
+import { ITechnology } from 'src/utils/interfaces/technology/interfaces';
+import { createSelectList } from 'src/utils/utils';
 
 @Component({
   selector: 'app-capability',
@@ -21,14 +25,27 @@ export class CapabilityComponent implements OnInit {
   firstLoad: boolean = true;
   response?: IGenericResponse;
 
-  constructor(private capabilityService: CapabilityService, private serviceLoader: LoaderService) {
+  selectedItems: ISelectItem[] = []
+  technologiesList: ISelectItem[] = [];
+
+  constructor(private capabilityService: CapabilityService, private serviceLoader: LoaderService, private technologyService: TechnologyService) {
     this.serviceLoader.isLoading$.subscribe(isLoading => {
       this.isLoading = isLoading;
     });
   }
 
   ngOnInit(): void {
+    this.loadTechnologies()
     this.loadCapabilities()
+  }
+
+  loadTechnologies(): void {
+    this.technologyService.getTechnologies(0, 1000, "ASC").subscribe({
+      next: (response: IPage<ITechnology>) => {
+        this.technologiesList = createSelectList(response.content);
+      },
+      error: (error: any) => {}
+    });
   }
 
   loadCapabilities(): void {

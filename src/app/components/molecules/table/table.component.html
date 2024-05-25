@@ -1,4 +1,4 @@
-<div *ngIf="technologiesList" class="content">
+<div *ngIf="listItems" class="content">
     <div class="content__header">
         <select class="select" (change)="changeOrder($event)">
             <option *ngFor="let option of selectOrder" [value]="option.value">{{option.label}}</option>
@@ -10,8 +10,8 @@
     </div>
 
     <div *ngIf="!isLoading; else elseBlock" class="content_data">
-        <app-list-items *ngFor="let technology of technologiesList" [title]="technology.name"
-            [subtitle]="technology.description">
+        <app-list-items *ngFor="let item of listItems" [title]="item.name"
+            [subtitle]="item.description">
         </app-list-items>
     </div>
 

@@ -6,7 +6,7 @@
 
 <ng-template #contentBlock>
     <app-table *ngIf="technologiesList; else noDataBlock" 
-        [technologiesList]="technologiesList"
+        [listItems]="technologiesList"
         [totalPages]="totalPages"
         [pageNumber]="pageNumber"
         [isLoading]="isLoading"

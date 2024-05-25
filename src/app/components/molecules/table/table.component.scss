@@ -61,21 +61,6 @@
     gap:1rem
 }
 
-.select {
-    background-color: transparent;
-    border: none;
-    color: $color-primary;
-    font-size: 14px;
-    line-height: 19.6px;
-    padding: 0 0.2rem;   
-    outline: none;
-    cursor: pointer;
-
-    & option {
-        background-color: #e7843d1f;
-    }
-}
-
 .content__pagination{
     height: 16px;
 }

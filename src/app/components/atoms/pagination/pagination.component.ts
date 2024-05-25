@@ -44,7 +44,4 @@ export class PaginationComponent implements OnInit {
       this.changePage(this.currentPage + 1);
     }
   }
-
-
-
 }

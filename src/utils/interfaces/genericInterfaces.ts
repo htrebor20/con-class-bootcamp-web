@@ -13,3 +13,8 @@ export interface ISelectItem{
     label:string;
     value:number | string;
 }
+
+export interface IBasicElement{
+    id:number;
+    name: string;
+}

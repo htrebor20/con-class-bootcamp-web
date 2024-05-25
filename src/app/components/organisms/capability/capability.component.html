@@ -10,8 +10,10 @@
         [totalPages]="totalPages"
         [pageNumber]="pageNumber"
         [isLoading]="isLoading"
+        [orderBy]="orderByList"
         (changedPage)="pageChanged($event)"
         (changedOrder)="orderChanged($event)"
+        (changedOrderBy)="orderChangedBy($event)"
         (changedSize)="sizeChanged($event)"
         >
         <app-button icon="assets/icons/plus.svg" label="Crear" (click)="openModal()">

@@ -17,15 +17,15 @@ export class CapabilityService {
     return this.httpClient.post<IGenericResponse>(this.url, formData, {observe: 'response'} );
   }
 
-  getCapability(pageNumber: number, pageSize: number, order: string): Observable<IPage<ICapability>> {
+  getCapability(pageNumber: number, pageSize: number, order: string, orderBy: string): Observable<IPage<ICapability>> {
 
     let params = new HttpParams()
       .set('page', pageNumber.toString())
       .set('size', pageSize.toString())
 
-    if (order) {
-      params = params.set('sort', order);
-      params = params.set('sortBy', "NAME");
+    if (order || orderBy) {
+      params = params.set('sort', order || "ASC");
+      params = params.set('sortBy', orderBy || "NAME");
     }
 
     return this.httpClient.get<IPage<ICapability>>(this.url, { params });

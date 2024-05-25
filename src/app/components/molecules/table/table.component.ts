@@ -13,13 +13,15 @@ export class TableComponent {
   selectSize: ISelectItem[] = LIST_SIZE;
   selectOrder: ISelectItem[] = ORDER
 
-  @Input() listItems: ITechnology[] = []
+  @Input() listItems: any[] = []
   @Input() totalPages: number = NaN
   @Input() pageNumber: number = NaN
   @Input() isLoading: boolean = true
+  @Input() orderBy: ISelectItem[] = []
 
   @Output() changedPage = new EventEmitter<number>();
   @Output() changedOrder = new EventEmitter<string>();
+  @Output() changedOrderBy = new EventEmitter<string>();
   @Output() changedSize = new EventEmitter<number>();
 
   constructor() { }
@@ -32,6 +34,12 @@ export class TableComponent {
     const value = (event.target as HTMLSelectElement).value;
     this.changedOrder.emit(value);
   }
+
+  changeOrderBy(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    this.changedOrderBy.emit(value);
+  }
+
 
   changeSize(event: Event) {
     const value = parseInt((event.target as HTMLSelectElement).value, 10);

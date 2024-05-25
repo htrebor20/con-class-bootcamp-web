@@ -31,7 +31,7 @@ export class FormCapabilityComponent implements OnInit {
 
       this.capabilityService.createCapability(formData).subscribe({
         next: (response: HttpResponse<IGenericResponse>) => {
-          this.responseStatus.emit({ status: response.status, message: "Capacidad creada!" });
+          this.responseStatus.emit({ status: response.status, message: "¡Capacidad creada!" });
         },
         error: (error: any) => {
           this.responseStatus.emit({ status: error.status, message: error.error?.message });

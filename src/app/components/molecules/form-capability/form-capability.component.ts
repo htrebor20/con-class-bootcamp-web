@@ -24,7 +24,6 @@ export class FormCapabilityComponent implements OnInit {
 
   async onSubmit() {
     this.form.markAllAsTouched();
-    console.log("this.form: ", this.form);
     if (this.form.valid) {
       const formData = this.form.value;
       formData.technologyIds = this.selectedTechnologies.map(item => item.value)
@@ -41,7 +40,6 @@ export class FormCapabilityComponent implements OnInit {
   }
 
   getErrorMessage(field: string): string {
-    console.log("field: ", field);
     return getError(field, this.form)
   }
 

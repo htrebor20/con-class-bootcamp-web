@@ -15,7 +15,7 @@ import { ISelectItem } from '../../../../utils/interfaces/genericInterfaces';
   ]
 })
 export class SelectMultipleComponent implements ControlValueAccessor, OnInit {
-  selectedItems: ISelectItem[] = [];
+  selectedItemsList: ISelectItem[] = [];
   @Input() itemList: ISelectItem[] = [];
   @Output() itemsSelected = new EventEmitter<ISelectItem[]>();
 
@@ -24,12 +24,11 @@ export class SelectMultipleComponent implements ControlValueAccessor, OnInit {
   ngOnInit(): void {
   }
 
-  // Métodos de ControlValueAccessor
   writeValue(value: any): void {
     if (value && Array.isArray(value)) {
-      this.selectedItems = value;
+      this.selectedItemsList = value;
     } else {
-      this.selectedItems = [];
+      this.selectedItemsList = [];
     }
   }
 
@@ -41,27 +40,25 @@ export class SelectMultipleComponent implements ControlValueAccessor, OnInit {
     this.onTouched = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {
-    // Implementar si es necesario
-  }
+  setDisabledState?(isDisabled: boolean): void {}
 
-  private onChange: (value: any) => void = () => {};
-  private onTouched: () => void = () => {};
+  private onChange: (value: any) => void = () => { };
+  private onTouched: () => void = () => { };
 
   addItem(event: Event) {
     const selectedIndex = (event.target as HTMLSelectElement).selectedIndex;
-    const selectedItem = this.itemList[selectedIndex];
-    const itemAlreadyExist = this.selectedItems.find(item => item.value === selectedItem.value)
+    const selectedItem = this.itemList[selectedIndex - 1];
+    const itemAlreadyExist = this.selectedItemsList.find(item => item.value === selectedItem.value)
     if (!itemAlreadyExist) {
-      this.selectedItems.push(selectedItem);
-      this.itemsSelected.emit(this.selectedItems);
-      this.onChange(this.selectedItems); // Llamar a onChange cuando el valor cambia
+      this.selectedItemsList.push(selectedItem);
+      this.itemsSelected.emit(this.selectedItemsList);
+      this.onChange(this.selectedItemsList);
     }
   }
 
   removeItem(itemToRemove: ISelectItem) {
-    this.selectedItems = this.selectedItems.filter(item => item.value !== itemToRemove.value);
-    this.itemsSelected.emit(this.selectedItems);
-    this.onChange(this.selectedItems); // Llamar a onChange cuando el valor cambia
+    this.selectedItemsList = this.selectedItemsList.filter(item => item.value !== itemToRemove.value);
+    this.itemsSelected.emit(this.selectedItemsList);
+    this.onChange(this.selectedItemsList);
   }
 }

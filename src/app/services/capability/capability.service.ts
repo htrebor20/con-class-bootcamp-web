@@ -17,7 +17,7 @@ export class CapabilityService {
     return this.httpClient.post<IGenericResponse>(this.url, formData, {observe: 'response'} );
   }
 
-  getCapability(pageNumber: number, pageSize: number, order: string, orderBy: string): Observable<IPage<ICapability>> {
+  getCapability(pageNumber: number, pageSize: number, order: string, orderBy?: string): Observable<IPage<ICapability>> {
 
     let params = new HttpParams()
       .set('page', pageNumber.toString())

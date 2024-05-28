@@ -1,1 +1,15 @@
-<p>bootcamp works!</p>
+<div class=content>
+    <h2 class="content__message">Crea un bootcamp</h2>
+    <app-button class="btn-create" icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
+</div>
+
+<app-modal *ngIf="modalIsOpen" title="Crear bootcamp" (close)="closeModal()">
+    <app-form-bootcamp (responseStatus)="handleResponse($event)" [capabilityList] = capabilitiesList></app-form-bootcamp>
+</app-modal>
+
+<app-modal *ngIf="response" buttonTitle="Aceptar" (close)="closeResponseModal()" (accept)="closeResponseModal()">
+    <div>
+        <app-response-message [status]="response.status" [message]="response.message">
+        </app-response-message>
+    </div>
+</app-modal>

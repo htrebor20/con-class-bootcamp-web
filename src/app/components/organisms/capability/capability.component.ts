@@ -29,7 +29,7 @@ export class CapabilityComponent implements OnInit {
   selectedItems: ISelectItem[] = []
   technologiesList: ISelectItem[] = [];
   
-  @Input() orderByList: ISelectItem[] = CAPABILITY_ORDER_BY;
+  orderByList: ISelectItem[] = CAPABILITY_ORDER_BY;
 
   constructor(private capabilityService: CapabilityService, private serviceLoader: LoaderService, private technologyService: TechnologyService) {
     this.serviceLoader.isLoading$.subscribe(isLoading => {

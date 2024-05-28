@@ -1,5 +1,5 @@
 <div class="selected__list">
-    <app-chips *ngFor="let item of selectedItems" (close)="removeItem($event)" [item]="item"></app-chips>
+    <app-chips *ngFor="let item of selectedItemsList" (close)="removeItem($event)" [item]="item"></app-chips>
 </div>
 
 <select class="select select__border" (change)="addItem($event)">

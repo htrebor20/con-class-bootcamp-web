@@ -1,0 +1,8 @@
+<div class="selected__list">
+    <app-chips *ngFor="let item of selectedItemsList" (close)="removeItem($event)" [item]="item"></app-chips>
+</div>
+
+<select class="select select__border" (change)="addItem($event)">
+    <option value="" disabled selected hidden>Seleccione una opción</option>
+    <option *ngFor=" let option of itemList" [value]="option"> {{option.label}} </option>
+</select>

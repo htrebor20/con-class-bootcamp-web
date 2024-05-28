@@ -1,10 +1,35 @@
-<div class=content>
-    <h2 class="content__message">Crea una capacidad</h2>
-    <app-button class="btn-create" icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
+<h2 *ngIf="requestError" class="content__message">Hubo un error. Inténtalo más tarde.</h2>
+
+<div *ngIf="firstLoad; else contentBlock">
+    <app-loader></app-loader>
 </div>
 
+<ng-template #contentBlock>
+    <app-table *ngIf="capabilitiesList; else noDataBlock" 
+        [listItems]="capabilitiesList"
+        [totalPages]="totalPages"
+        [pageNumber]="pageNumber"
+        [isLoading]="isLoading"
+        [orderBy]="orderByList"
+        (changedPage)="pageChanged($event)"
+        (changedOrder)="orderChanged($event)"
+        (changedOrderBy)="orderChangedBy($event)"
+        (changedSize)="sizeChanged($event)"
+        >
+        <app-button icon="assets/icons/plus.svg" label="Crear" (click)="openModal()">
+        </app-button>
+    </app-table>
+
+    <ng-template #noDataBlock>
+        <div class=content>
+            <h2 class="content__message">Crea una capacidad</h2>
+            <app-button class="btn-create" icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
+        </div>
+    </ng-template>
+</ng-template>
+
 <app-modal *ngIf="modalIsOpen" title="Crear capacidad" (close)="closeModal()">
-    <app-form-capability (responseStatus)="handleResponse($event)"></app-form-capability>
+    <app-form-capability (responseStatus)="handleResponse($event)" [technologyList] = technologiesList></app-form-capability>
 </app-modal>
 
 <app-modal *ngIf="response" buttonTitle="Aceptar" (close)="closeResponseModal()" (accept)="closeResponseModal()">

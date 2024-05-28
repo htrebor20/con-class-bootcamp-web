@@ -27,7 +27,7 @@
 </ng-template>
 
 <app-modal *ngIf="modalIsOpen" title="Crear bootcamp" (close)="closeModal()">
-    <app-form-bootcamp (responseStatus)="handleResponse($event)"></app-form-bootcamp>
+    <app-form-bootcamp (responseStatus)="handleResponse($event)" [capabilityList] = capabilitiesList></app-form-bootcamp>
 </app-modal>
 
 <app-modal *ngIf="response" buttonTitle="Aceptar" (close)="closeResponseModal()" (accept)="closeResponseModal()">

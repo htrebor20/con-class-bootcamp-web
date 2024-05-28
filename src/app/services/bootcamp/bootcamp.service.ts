@@ -17,16 +17,16 @@ export class BootcampService {
     return this.httpClient.post<IGenericResponse>(this.url, formData, {observe: 'response'} );
   }
 
-  getBootcamp(pageNumber: number, pageSize: number, order: string): Observable<IPage<IBootcamp>> {
+  getBootcamp(pageNumber: number, pageSize: number, order: string, orderBy?: string): Observable<IPage<IBootcamp>> {
 
     let params = new HttpParams()
       .set('page', pageNumber.toString())
       .set('size', pageSize.toString())
 
-    if (order) {
-      params = params.set('sort', order);
-      params = params.set('sortBy', "NAME");
-    }
+      if (order || orderBy) {
+        params = params.set('sort', order || "ASC");
+        params = params.set('sortBy', orderBy || "NAME");
+      }
 
     return this.httpClient.get<IPage<IBootcamp>>(this.url, { params });
   }

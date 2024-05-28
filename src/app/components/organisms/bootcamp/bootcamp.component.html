@@ -5,15 +5,10 @@
 </div>
 
 <ng-template #contentBlock>
-    <app-table *ngIf="bootcampList; else noDataBlock" 
-        [listItems]="bootcampList"
-        [totalPages]="totalPages"
-        [pageNumber]="pageNumber"
-        [isLoading]="isLoading"
-        (changedPage)="pageChanged($event)"
-        (changedOrder)="orderChanged($event)"
-        (changedSize)="sizeChanged($event)"
-        >
+    <app-table *ngIf="bootcampList; else noDataBlock" [listItems]="bootcampList" [totalPages]="totalPages"
+        [pageNumber]="pageNumber" [isLoading]="isLoading" [orderBy]="orderByList" (changedPage)="pageChanged($event)"
+        (changedOrder)="orderChanged($event)" (changedSize)="sizeChanged($event)"
+        (changedOrderBy)="orderChangedBy($event)">
         <app-button icon="assets/icons/plus.svg" label="Crear" (click)="openModal()">
         </app-button>
     </app-table>
@@ -21,13 +16,14 @@
     <ng-template #noDataBlock>
         <div class=content>
             <h2 class="content__message">Crea un bootcamp</h2>
-            <app-button class="btn-create" icon="assets\icons\plus.svg" label="Crear" (click)="openModal()"></app-button>
+            <app-button class="btn-create" icon="assets\icons\plus.svg" label="Crear"
+                (click)="openModal()"></app-button>
         </div>
     </ng-template>
 </ng-template>
 
 <app-modal *ngIf="modalIsOpen" title="Crear bootcamp" (close)="closeModal()">
-    <app-form-bootcamp (responseStatus)="handleResponse($event)" [capabilityList] = capabilitiesList></app-form-bootcamp>
+    <app-form-bootcamp (responseStatus)="handleResponse($event)" [capabilityList]=capabilitiesList></app-form-bootcamp>
 </app-modal>
 
 <app-modal *ngIf="response" buttonTitle="Aceptar" (close)="closeResponseModal()" (accept)="closeResponseModal()">

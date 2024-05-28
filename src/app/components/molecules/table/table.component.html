@@ -1,30 +1,32 @@
 <div *ngIf="listItems" class="content">
     <div class="content__header">
-        <select class="select" (change)="changeOrderBy($event)">
-            <option *ngFor="let option of orderBy" [value]="option.value">{{option.label}}</option>
-        </select>
-
-        <select class="select" (change)="changeOrder($event)">
-            <option *ngFor="let option of selectOrder" [value]="option.value">{{option.label}}</option>
-        </select>
-
-        <select class="select" (change)="changeSize($event)">
-            <option *ngFor="let option of selectSize" [value]="option.value"> {{option.label}} </option>
-        </select>
+        <div>
+            <select *ngIf="orderBy.length" class="select" (change)="changeOrderBy($event)">
+                <option *ngFor="let option of orderBy" [value]="option.value">{{option.label}}</option>
+            </select>
+        </div>
+        <div>
+            <select class="select" (change)="changeOrder($event)">
+                <option *ngFor="let option of selectOrder" [value]="option.value">{{option.label}}</option>
+            </select>
+        </div>
+        <div>
+            <select class="select" (change)="changeSize($event)">
+                <option *ngFor="let option of selectSize" [value]="option.value"> {{option.label}} </option>
+            </select>
+        </div>
     </div>
 
     <!-- [title]="item.name + ' ' + item.technologies.length" -->
     <div *ngIf="!isLoading; else elseBlock" class="content_data">
-        <app-list-items *ngFor="let item of listItems" 
-            [title]="item.name"
-            [subtitle]="item.description">
+        <app-list-items *ngFor="let item of listItems" [title]="item.name" [subtitle]="item.description">
         </app-list-items>
     </div>
 
     <ng-template #elseBlock>
         <app-loader></app-loader>
     </ng-template>
-    
+
     <div class="content__footer">
         <ng-content></ng-content>
         <div class="content__pagination">

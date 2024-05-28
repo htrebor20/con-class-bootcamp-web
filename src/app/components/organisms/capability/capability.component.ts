@@ -28,7 +28,7 @@ export class CapabilityComponent implements OnInit {
   response?: IGenericResponse;
   selectedItems: ISelectItem[] = []
   technologiesList: ISelectItem[] = [];
-  
+
   orderByList: ISelectItem[] = CAPABILITY_ORDER_BY;
 
   constructor(private capabilityService: CapabilityService, private serviceLoader: LoaderService, private technologyService: TechnologyService) {
@@ -47,7 +47,7 @@ export class CapabilityComponent implements OnInit {
       next: (response: IPage<ITechnology>) => {
         this.technologiesList = createSelectList(response.content);
       },
-      error: (error: any) => {}
+      error: (error: any) => { }
     });
   }
 
@@ -61,6 +61,7 @@ export class CapabilityComponent implements OnInit {
       error: (error: any) => {
         this.requestError = true
         this.firstLoad = false;
+        this.capabilitiesList = []
       }
     });
   }

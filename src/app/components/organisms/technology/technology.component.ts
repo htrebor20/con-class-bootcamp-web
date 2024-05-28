@@ -42,6 +42,7 @@ export class TechnologyComponent implements OnInit {
       error: (error: any) => {
         this.requestError = true
         this.firstLoad = false;
+        this.technologiesList = []
       }
     });
   }

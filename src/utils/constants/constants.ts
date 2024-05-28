@@ -18,7 +18,6 @@ export const LIST_SIZE: ISelectItem[] = [
 ]
 
 export const ORDER: ISelectItem[] = [
-    { label: "Ordenar", value: "" },
     { label: "Ascendente", value: "ASC" },
     { label: "Descendente", value: "DESC" },
 ]
@@ -27,4 +26,11 @@ export const CAPABILITY_ORDER_BY: ISelectItem[] = [
     { label: "Ordenar por", value: "" },
     { label: "Nombre", value: "NAME" },
     { label: "Cantidad de tecnologías", value: "TECHNOLOGY_COUNT" },
+]
+
+
+export const BOOTCAMP_ORDER_BY: ISelectItem[] = [
+    { label: "Ordenar por", value: "" },
+    { label: "Nombre", value: "NAME" },
+    { label: "Cantidad de capacidades", value: "CAPABILITY_COUNT" },
 ]

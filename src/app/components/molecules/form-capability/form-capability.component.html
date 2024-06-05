@@ -21,7 +21,7 @@
     <div class="custom__imput">
         <label class="label" for="technologies">Tecnologías</label>
         <app-select-multiple [itemList]="technologyList" (itemsSelected)="updateTechList($event)"
-            (itemsSelected)="updateTechList($event)" formControlName="technologyIds"></app-select-multiple>
+             formControlName="technologyIds"></app-select-multiple>
         <span
             *ngIf="form.get('technologyIds')?.invalid && (form.get('technologyIds')?.dirty || form.get('technologyIds')?.touched)"
             class="input__error"> {{

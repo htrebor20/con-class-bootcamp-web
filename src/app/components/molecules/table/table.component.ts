@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ITechnology } from '../../../../utils/interfaces/technology/interfaces';
 import { LIST_SIZE, ORDER } from '../../../../utils/constants/constants';
 import { ISelectItem } from '../../../../utils/interfaces/genericInterfaces';
 

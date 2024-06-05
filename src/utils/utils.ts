@@ -9,7 +9,6 @@ export const createSelectList = (list: any[]): ISelectItem[] => {
 };
 
 export const minArrayLengthValidator = (minLength: number) => {
-    console.log("minArrayLengthValidator: ");
     return (control: AbstractControl): ValidationErrors | null => {
         if (!control.value || control.value.length < minLength) {
             return { minArrayLength: { requiredLength: minLength, actualLength: control.value ? control.value.length : 0 } };
